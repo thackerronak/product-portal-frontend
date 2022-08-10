@@ -69,7 +69,7 @@ export enum PAGES {
   APP_MANAGEMENT = 'appmanagement',
   APPOVERVIEW = 'appoverview',
   APPRELEASEPROCESS = 'appreleaseprocess',
-  IRS = 'itemrelationshipservice'
+  IRS = 'itemrelationshipservice',
 }
 
 export enum OVERLAYS {

@@ -29,7 +29,6 @@ import {
 } from 'features/irs/slice'
 import Highlight from 'react-highlight'
 
-
 interface props {
   subModel: SubmodelDescriptors
   // hasTombstones?: (x:boolean) => void

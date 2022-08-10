@@ -18,7 +18,6 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-
 import { Table } from 'cx-portal-shared-components'
 import './irs.scss'
 import { Box } from '@mui/material'
@@ -38,13 +37,12 @@ import { IrsJobDetails } from './irsJobDetails'
 import { NodeDetailDialog } from './dialog/NodeDetailDialog'
 import { store } from '../../../features/store'
 
-
 // What to do for integration in this project
 // 1. install dependencies
 //      cd cx-portal
 //      yarn add reaflow
 //      yarn add react-highlight
-//          if this does not run through use 
+//          if this does not run through use
 //          npm --proxy $proxy install react-highlight
 //          npm i --save @types/react-highlight
 // 2. add feature folder for communication
@@ -52,7 +50,7 @@ import { store } from '../../../features/store'
 // 4. copy DetailGrid from shared components and add the type any to content
 // 5. configure Config.tsx
 //      add to ALL_PAGES -> { name: PAGES.IRS, element: <ItemRelationshipService />},
-//      add to mainMenuFullTree -> { name: PAGES.IRS }, 
+//      add to mainMenuFullTree -> { name: PAGES.IRS },
 // 6. add to Constants.ts to PAGES
 //      IRS = 'itemrelationshipservice'
 // 7. Add translations to locals en and de
@@ -83,9 +81,7 @@ import { store } from '../../../features/store'
 // TODO: Add Copyright Header
 // MAYBE: change visualization to D3 https://codesandbox.io/examples/package/react-d3-tree
 
-
 export default function ItemRelationshipService() {
-
   const { jobs, loading } = useSelector(jobsSelector)
   const { job } = useSelector(jobsSelector)
   const { showNodeDialog } = useSelector(nodeDialogSelector)
@@ -97,8 +93,8 @@ export default function ItemRelationshipService() {
     dispatch(fetchJobs())
   }, [dispatch])
 
-//   console.log('Store:',store.getState())
-  
+  //   console.log('Store:',store.getState())
+
   const closeDialog = () => {
     dispatch(jobSlice.actions.closeDialog())
   }

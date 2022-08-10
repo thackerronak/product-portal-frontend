@@ -95,7 +95,7 @@ export const jobsSelector = (state: RootState): JobsInitialState => state.irs
 export const nodeSelector = (state: RootState): NodeData<any>[] | [] => {
   if (state.irs.job) {
     const ret: NodeData<any>[] | [] = state.irs.job?.shells.map(
-      (el:ShellDescriptor): NodeData<any> => {
+      (el: ShellDescriptor): NodeData<any> => {
         return {
           id: el.globalAssetId.value[0],
           // text: el.globalAssetId.value[0],
@@ -114,7 +114,7 @@ export const nodeSelector = (state: RootState): NodeData<any>[] | [] => {
 export const edgeSelector = (state: RootState): EdgeData<any>[] | [] => {
   if (state.irs.job?.relationships) {
     const ret: EdgeData<any>[] = state.irs.job.relationships.map(
-      (rel:any): EdgeData<any> => {
+      (rel: any): EdgeData<any> => {
         return {
           id: uniqueId(rel.catenaXId),
           from: rel.catenaXId,
@@ -122,7 +122,7 @@ export const edgeSelector = (state: RootState): EdgeData<any>[] | [] => {
         }
       }
     )
-    const listOfNodeIds = state.irs.job?.shells.map((x:any) => {
+    const listOfNodeIds = state.irs.job?.shells.map((x: any) => {
       // console.log('globalAssetIds', x.globalAssetId.value[0])
       return x.globalAssetId.value[0]
     })
