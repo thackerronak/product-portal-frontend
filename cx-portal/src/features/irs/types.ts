@@ -38,19 +38,6 @@ export interface irsjobstatus {
 }
 export interface irsjobs extends Array<irsjobstatus> {}
 
-export interface jobinfo {
-  createdOn: string
-  exception: IrsException
-  globalAssetId: string
-  jobCompleted: string
-  jobId: string
-  jobParameter: {}
-  jobState: string
-  lastModifiedOn: string
-  owner: string
-  startedon: string
-  summary: Summary
-}
 
 export interface irsjob {
   job: jobinfo
@@ -60,10 +47,25 @@ export interface irsjob {
   tombstones: Tombstones[]
 }
 
+export interface jobinfo {
+  exception: IrsException
+  globalAssetId: string
+  jobId: string
+  jobParameter: {}
+  jobState: string
+  createdOn: Date
+  jobCompleted: string
+  lastModifiedOn: string
+  startedOn: string
+  owner: string
+  summary: Summary
+}
+
 interface Relationship {
   catenaXId: string
   childItem: childItem
 }
+
 interface childItem {
   assembledOn: string
   childCatenaXId: string
@@ -164,8 +166,4 @@ interface SemanticId {
   value: string[]
 }
 
-// NODES
-export interface Node {
-  id: string
-  name: string
-}
+

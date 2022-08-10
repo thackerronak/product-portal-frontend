@@ -70,11 +70,11 @@ export const SubmodelDetailCard = ({ submodel, aasId }: props) => {
           key={uniqueId(submodel.idShort)}
           sx={{ width: '100%' }}
           size="small"
-          color={tombstones.length < 1 ? 'secondary' : 'primary'}
+          color={tombstones.length < 1 ? 'success' : 'secondary'}
           variant="contained"
-          onClick={(event) => {
+          onClick={(event:any) => {
             event.preventDefault()
-            console.log('CLICK', aasId)
+            // console.log('CLICK', aasId)
             dispatch(jobSlice.actions.openDialog(aasId))
           }}
         >

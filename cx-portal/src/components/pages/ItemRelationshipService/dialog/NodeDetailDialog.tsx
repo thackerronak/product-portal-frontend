@@ -27,6 +27,7 @@ import { useSelector } from 'react-redux'
 import { nodeDialogSelector, getShells } from 'features/irs/slice'
 import { ShellDescriptor } from 'features/digitalTwins/types'
 import { NodeDetails } from './NodeDetails'
+import { useTranslation } from 'react-i18next'
 
 interface NodeDialogProps {
   show: boolean
@@ -34,6 +35,7 @@ interface NodeDialogProps {
 }
 
 export const NodeDetailDialog = ({ show, onClose }: NodeDialogProps) => {
+  const { t } = useTranslation()
   const nodeDialoge = useSelector(nodeDialogSelector)
   const shellList = useSelector(getShells)
   const twin = shellList.find(
@@ -42,7 +44,7 @@ export const NodeDetailDialog = ({ show, onClose }: NodeDialogProps) => {
   return (
     <Dialog open={show}>
       <DialogHeader
-        title="Node Details"
+        title={t('content.irs.dialog.title')}
         closeWithIcon
         onCloseWithIcon={onClose}
       />

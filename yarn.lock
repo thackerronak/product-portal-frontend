@@ -8824,7 +8824,7 @@
   "resolved" "https://registry.npmjs.org/hey-listen/-/hey-listen-1.0.8.tgz"
   "version" "1.0.8"
 
-"highlight.js@^10.1.1", "highlight.js@^10.5.0", "highlight.js@~10.7.0":
+"highlight.js@^10.1.1", "highlight.js@^10.4.1", "highlight.js@^10.5.0", "highlight.js@~10.7.0":
   "integrity" "sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A=="
   "resolved" "https://registry.npmjs.org/highlight.js/-/highlight.js-10.7.3.tgz"
   "version" "10.7.3"
@@ -10693,7 +10693,7 @@
   dependencies:
     "tslib" "^2.0.3"
 
-"lowlight@^1.14.0":
+"lowlight@^1.14.0", "lowlight@^1.17.0":
   "integrity" "sha512-8Ktj+prEb1RoCPkEOrPMYUN/nCggB7qAWe3a7OpMjWQkh3l2RD5wKRQ+o8Q8YuI9RG/xs95waaI/E6ym/7NsTw=="
   "resolved" "https://registry.npmjs.org/lowlight/-/lowlight-1.20.0.tgz"
   "version" "1.20.0"
@@ -12657,7 +12657,7 @@
   "resolved" "https://registry.npmjs.org/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz"
   "version" "1.0.3"
 
-"prismjs@^1.21.0", "prismjs@~1.27.0":
+"prismjs@^1.21.0", "prismjs@^1.27.0", "prismjs@~1.27.0":
   "integrity" "sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA=="
   "resolved" "https://registry.npmjs.org/prismjs/-/prismjs-1.27.0.tgz"
   "version" "1.27.0"
@@ -13232,6 +13232,17 @@
     "prismjs" "^1.21.0"
     "refractor" "^3.1.0"
 
+"react-syntax-highlighter@^15.5.0":
+  "integrity" "sha512-+zq2myprEnQmH5yw6Gqc8lD55QHnpKaU8TOcFeC/Lg/MQSs8UknEA0JC4nTZGFAXC2J2Hyj/ijJ7NlabyPi2gg=="
+  "resolved" "https://registry.npmjs.org/react-syntax-highlighter/-/react-syntax-highlighter-15.5.0.tgz"
+  "version" "15.5.0"
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    "highlight.js" "^10.4.1"
+    "lowlight" "^1.17.0"
+    "prismjs" "^1.27.0"
+    "refractor" "^3.6.0"
+
 "react-textarea-autosize@^8.3.0":
   "integrity" "sha512-2XlHXK2TDxS6vbQaoPbMOfQ8GK7+irc2fVK6QFIcC8GOnH3zI/v481n+j1L0WaPVvKxwesnY93fEfH++sus2rQ=="
   "resolved" "https://registry.npmjs.org/react-textarea-autosize/-/react-textarea-autosize-8.3.3.tgz"
@@ -13392,7 +13403,7 @@
   dependencies:
     "@babel/runtime" "^7.9.2"
 
-"refractor@^3.1.0":
+"refractor@^3.1.0", "refractor@^3.6.0":
   "integrity" "sha512-MY9W41IOWxxk31o+YvFCNyNzdkc9M20NoZK5vq6jkv4I/uh2zkWcfudj0Q1fovjUQJrNewS9NMzeTtqPf+n5EA=="
   "resolved" "https://registry.npmjs.org/refractor/-/refractor-3.6.0.tgz"
   "version" "3.6.0"

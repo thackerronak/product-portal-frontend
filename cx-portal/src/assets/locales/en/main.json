@@ -232,6 +232,41 @@
         "protocol_endpoint": "Aspect Endpoint:"
       }
     },
+    "irs":{
+      "jobsTable":{
+        "title": "Item Relationship Service Job Store ",
+        "jobID": "Id",
+        "status": "Status",
+        "visualize": "Visualization"
+      },
+      "jobDetails":{
+        "title": "Item Relationship Service Job Details",
+        "globalAssetId": "Global Asset ID:",
+        "exception":"Exception:",
+        "createdOn":"Job created on:",
+        "startedOn":"Job started on:",
+        "lastModifiedOn": "Job last modified on:",
+        "jobCompleted": "Job completed on:",
+        "owner": "Job owner:",
+        "summary": "Job summary:",
+        "jobParameter": "Job parameter:"
+      },
+      "visualization": {
+        "title": "Visualization of IRS Result"
+      },
+      "dialog":{
+        "title": "Node Details",
+        "submodelTombstones": {
+          "title":"Submodel Tombstones",
+          "lastAttempt": "Timestamp:",
+          "errorDetail": "Error Details:"
+        },
+        "submodelPayload" : {
+          "title": "Submodel Payload",
+          "payload": "Payload:"
+        }
+      }
+    },
     "datamanagement": {
       "message": "Contents of Data Management"
     },

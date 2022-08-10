@@ -18,19 +18,23 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 import { jobinfo } from 'features/irs/types'
-import Highlight from 'react-highlight'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { googlecode } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+
 import { DetailGrid } from './DetailGrid'
 import { Grid, Box, Divider, useTheme } from '@mui/material'
+import { useTranslation } from 'react-i18next'
+import dayjs from 'dayjs'
+
 interface props {
   job: jobinfo | undefined
 }
 
 export const IrsJobDetails = ({ job }: props) => {
-  const theme = useTheme()
+  const { t } = useTranslation()
   const beautifulJson = (json: any) => {
-    return <Highlight>{JSON.stringify(json, null, 2)}</Highlight>
+    return <SyntaxHighlighter style={googlecode}>{JSON.stringify(json, null, 2)}</SyntaxHighlighter>
   }
-
   return (
     <>
       <section
@@ -40,7 +44,7 @@ export const IrsJobDetails = ({ job }: props) => {
       >
         <Box className="irs-job-details">
           <Box className="irs-job-details-header">
-            <header>IRS Job Details</header>
+            <h5>{t('content.irs.jobDetails.title')}</h5>
           </Box>
           <Box className="irs-job-details-content">
             {job && (
@@ -49,40 +53,44 @@ export const IrsJobDetails = ({ job }: props) => {
                 <DetailGrid topic={'Job ID:'} content={job?.jobId} />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={'global Asset ID:'}
+                  topic={t('content.irs.jobDetails.globalAssetId')}
                   content={job.globalAssetId}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid topic={'Job State:'} content={job.jobState} />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={'Exception:'}
+                  topic={t('content.irs.jobDetails.exception')}
                   content={beautifulJson(job.exception)}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-                <DetailGrid topic={'Job Created:'} content={job.createdOn} />
-                <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-                <DetailGrid topic={'Job Started:'} content={job.startedon} />
+                <DetailGrid
+                   topic={t('content.irs.jobDetails.createdOn')} 
+                   content={dayjs(job.createdOn).format('YYYY-MM-DD HH:mm:ss')} />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={'Job last modified:'}
-                  content={job.lastModifiedOn}
+                   topic={t('content.irs.jobDetails.startedOn')}
+                  content={dayjs(job.startedOn).format('YYYY-MM-DD HH:mm:ss')} />
+                <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+                <DetailGrid
+                  topic={t('content.irs.jobDetails.lastModifiedOn')}
+                  content={dayjs(job.lastModifiedOn).format('YYYY-MM-DD HH:mm:ss')}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={'Job Completed:'}
-                  content={job.jobCompleted}
+                  topic={t('content.irs.jobDetails.jobCompleted')}
+                  content={dayjs(job?.jobCompleted).format('YYYY-MM-DD HH:mm:ss')}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-                <DetailGrid topic={'Job Owner:'} content={job.owner} />
+                <DetailGrid topic={t('content.irs.jobDetails.owner')} content={job.owner} />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={'Job Summary:'}
+                  topic={t('content.irs.jobDetails.summary')}
                   content={beautifulJson(job.summary)}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={'Job Parameter:'}
+                  topic={t('content.irs.jobDetails.jobParameter')}
                   content={beautifulJson(job.jobParameter)}
                 />
               </Grid>

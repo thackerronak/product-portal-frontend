@@ -27,8 +27,10 @@ import {
   getTombstonesByEndpointAdress,
   getSubmodelPaloadBySubmodelId,
 } from 'features/irs/slice'
-import Highlight from 'react-highlight'
-
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { googlecode } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { useTranslation } from 'react-i18next'
+import dayjs from 'dayjs'
 interface props {
   subModel: SubmodelDescriptors
   // hasTombstones?: (x:boolean) => void
@@ -36,6 +38,9 @@ interface props {
 }
 
 export const SubmodelTobmstones = ({ subModel }: props) => {
+  
+  const { t } = useTranslation()
+  
   const tombstones: Tombstones[] | [] = useSelector((state) => {
     if (subModel != null) {
       return getTombstonesByEndpointAdress(
@@ -66,26 +71,28 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
     <>
       {hasTombstoness && (
         <Box key={'tombstones'}>
-          <h1>Submodel Tombstones</h1>
+          <h1>{t('content.irs.dialog.submodelTombstones.title')}</h1>
           {tombstones.map((stone) => {
+
+          
+            // console.log(JSON.parse('{'+stone.processingError.errorDetail.toString()+'}'))
             return (
               <Box key={`stone_${stone.catenaXId}_${stone.endpointURL}`}>
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={'Timestamp:'}
-                  content={stone.processingError.lastAttempt}
+                  topic={t('content.irs.dialog.submodelTombstones.lastAttempt')}
+                  content={dayjs(stone.processingError.lastAttempt).format('YYYY-MM-DD HH:mm:ss')}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={'Error Detail:'}
+                  topic={t('content.irs.dialog.submodelTombstones.errorDetail')}
                   content={
-                    <Highlight>
-                      {JSON.stringify(
-                        stone.processingError.errorDetail,
-                        null,
-                        2
-                      )}
-                    </Highlight>
+                      stone.processingError.errorDetail
+                    // <SyntaxHighlighter style={googlecode}>
+                    //   {
+                    //   // JSON.stringify(JSON.parse(stone.processingError.errorDetail), null, 2)
+                    //   }
+                    // </SyntaxHighlighter>
                   }
                 />
               </Box>
@@ -96,7 +103,7 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
 
       {hasPayload() && (
         <>
-          <h1>Submodel Payload</h1>
+          <h1>{t('content.irs.dialog.submodelPayload.title')}</h1>
           {submodelPayload.map((payload) => {
             return (
               <Box
@@ -104,11 +111,11 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
               >
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={'Payload:'}
+                  topic={t('content.irs.dialog.submodelPayload.payload')}
                   content={
-                    <Highlight>
-                      {JSON.stringify(payload.payload.toString(), null, 2)}
-                    </Highlight>
+                    <SyntaxHighlighter style={googlecode}>
+                      {JSON.stringify(JSON.parse(payload.payload), null, 2)}
+                    </SyntaxHighlighter>
                   }
                 />
               </Box>

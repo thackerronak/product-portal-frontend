@@ -232,6 +232,41 @@
         "protocol_endpoint": "Aspekt Endpunkt:"
       }
     },
+    "irs":{
+      "jobsTable":{
+        "title": "Item Relationship Service Job Store",
+        "jobID": "Id",
+        "status": "Status",
+        "visualize": "Visualisierung"
+      },
+      "jobDetails":{
+        "title": "Item Relationship Service Job Details",
+        "globalAssetId": "Global Asset ID:",
+        "exception":"Exception:",
+        "createdOn":"Job erstellt am:",
+        "startedOn":"Job gestartet am:",
+        "lastModifiedOn": "Job zuletzt gändert am:",
+        "jobCompleted": "Job beendet am:",
+        "owner": "Job Besitzer:",
+        "summary": "Job Zusammenfassung:",
+        "jobParameter": "Job Parameter:"
+      },
+      "visualization": {
+        "title": "IRS-Ergebniss Visualisierung"
+      },
+      "dialog":{
+        "title": "Details",
+        "submodelTombstones": {
+          "title":"Sub-Modell Fehlermeldungen",
+          "lastAttempt": "Zeitstempel:",
+          "errorDetail": "Error-Details:"
+        },
+        "submodelPayload" : {
+          "title": "Sub-Modell Payload",
+          "payload": "Payload:"
+        }
+      }
+    },
     "datamanagement": {
       "message": "Inhalte vom Datenmanagement"
     },

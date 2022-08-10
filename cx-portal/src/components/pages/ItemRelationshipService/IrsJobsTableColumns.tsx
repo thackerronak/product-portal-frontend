@@ -21,28 +21,35 @@ import { GridColDef } from '@mui/x-data-grid'
 import { IconButton } from 'cx-portal-shared-components'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { irsjobstatus } from 'features/irs/types'
+import { useTranslation } from 'react-i18next'
+
 
 // Columns definitions of Digital Twin page Data Grid
 export const IrsJobsTableColumns = (
   visualize: (id: string) => void
 ): Array<GridColDef> => {
+
+  const { t } = useTranslation()
+
   return [
     {
       field: 'jobId',
-      headerName: 'JobId',
+      headerName: t('content.irs.jobsTable.jobID'),
       flex: 3,
       filterable: false,
     },
     {
       field: 'status',
-      headerName: 'status',
+      headerName: t('content.irs.jobsTable.status'),
+      // headerName: 'status',
       flex: 2,
       filterable: false,
       valueGetter: ({ row }: { row: irsjobstatus }) => row.status,
     },
     {
       field: 'visualize',
-      headerName: `Visualize`,
+      // headerName: `Visualize`,
+      headerName: t('content.irs.jobsTable.visualize'),
       flex: 1,
       sortable: false,
       filterable: false,

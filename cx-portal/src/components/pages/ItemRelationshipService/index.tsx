@@ -36,15 +36,13 @@ import { NodeTemplate } from './visualization/nodeTemplate'
 import { IrsJobDetails } from './irsJobDetails'
 import { NodeDetailDialog } from './dialog/NodeDetailDialog'
 import { store } from '../../../features/store'
+import { useTranslation } from 'react-i18next'
 
 // What to do for integration in this project
 // 1. install dependencies
 //      cd cx-portal
 //      yarn add reaflow
-//      yarn add react-highlight
-//          if this does not run through use
-//          npm --proxy $proxy install react-highlight
-//          npm i --save @types/react-highlight
+//      yarn add react-syntax-highlighter
 // 2. add feature folder for communication
 // 3. add all ressources in the ItemRelationshipService Folder
 // 4. copy DetailGrid from shared components and add the type any to content
@@ -68,32 +66,48 @@ import { store } from '../../../features/store'
 // ✅ Styling the Visualization
 // ✅ Clean up Code
 // ✅ Check into Github Branch
-// TODO: Refactor to new API Logic
-// TODO: Add Success state to aspect button
 // ✅ Remove helper console.log()
 // ✅ Linting
-// TODO: Change functionality to show Items, where Registry Call has not been done yet (Links which have been filtered out!)
-// TODO: Automatic Refresh Toggle
-// TODO: Clean up any Types in slice
-// TODO: Clean up irs.scss
-// TODO: Clean up types
-// TODO: Add translations
-// TODO: Add Copyright Header
+// ✅ Add translations
+// ✅ Add Copyright Header
+// ✅ Add Success state to aspect button
+// ✅ Clean up irs.scss
+// ✅ Date 
+// ✅ Clean up types
+// ✅ Change highlighter to https://github.com/react-syntax-highlighter/react-syntax-highlighter
 // MAYBE: change visualization to D3 https://codesandbox.io/examples/package/react-d3-tree
+// TODO: Refactor to new API Logic
+// TODO: Automatic Refresh Toggle
+// TODO: Change functionality to show Items, where Registry Call has not been done yet (Links which have been filtered out!)
+// TODO: Refactor Dialog
+// TODO: Add Click event on Node
+// TODO: Add additional Information on Edge
+
 
 export default function ItemRelationshipService() {
+  const { t } = useTranslation()
   const { jobs, loading } = useSelector(jobsSelector)
   const { job } = useSelector(jobsSelector)
   const { showNodeDialog } = useSelector(nodeDialogSelector)
-  const nodetest = useSelector(nodeSelector)
+  const nodes = useSelector(nodeSelector)
   const edges = useSelector(edgeSelector)
 
+  
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchJobs())
   }, [dispatch])
-
-  //   console.log('Store:',store.getState())
+  
+  // Automatic Refresh
+  // const s = true
+  // useEffect(() => {
+  //   if(s){
+  //     setInterval(() =>{
+  //       // console.log('timer', dispatch(fetchJobs()))
+  //       // Update jobs
+  //     }, 30*1000)
+  //   }
+  // })
 
   const closeDialog = () => {
     dispatch(jobSlice.actions.closeDialog())
@@ -105,6 +119,8 @@ export default function ItemRelationshipService() {
   }
 
   const columns = IrsJobsTableColumns(visualize)
+
+  
 
   const nodeStyle = {
     fill: 'white',
@@ -125,7 +141,8 @@ export default function ItemRelationshipService() {
     <main className="main">
       <section style={{ paddingBottom: 20 }}>
         <Table
-          title="IRS Jobs"
+          // title="IRS Jobs"
+          title={t('content.irs.jobsTable.title')}
           className="irs-table"
           columns={columns}
           rows={jobs}
@@ -134,25 +151,27 @@ export default function ItemRelationshipService() {
           disableColumnSelector={true}
           disableDensitySelector={true}
           hideFooter={true}
-          disableColumnMenu
+          disableColumnMenu={true}
           onSelectionModelChange={(item: any) => {
             visualize(item.toString())
           }}
         />
+        
       </section>
-
-      <IrsJobDetails job={job?.job}></IrsJobDetails>
-
+      {job && (
+        <IrsJobDetails job={job?.job}></IrsJobDetails>
+      )}
+      {job && nodes.length > 0 && edges.length > 0 && (
       <section>
         <Box className="irs-visualization" sx={{ textAlign: 'center' }}>
           <Box className="irs-visualization-header">
-            <header>IRS Visualization</header>
+            <h5>{t('content.irs.visualization.title')}</h5>
           </Box>
           <Canvas
             className="canvas"
             zoom={0.4}
             height={800}
-            nodes={nodetest}
+            nodes={nodes}
             edges={edges}
             defaultPosition={CanvasPosition.TOP}
             node={
@@ -191,6 +210,8 @@ export default function ItemRelationshipService() {
           />
         </Box>
       </section>
+      )}
+      
       <NodeDetailDialog
         show={showNodeDialog}
         onClose={() => closeDialog()}
