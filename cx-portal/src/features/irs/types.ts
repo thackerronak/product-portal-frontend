@@ -38,7 +38,6 @@ export interface irsjobstatus {
 }
 export interface irsjobs extends Array<irsjobstatus> {}
 
-
 export interface irsjob {
   job: jobinfo
   relationships: Relationship[]
@@ -165,5 +164,3 @@ interface Endpoints {
 interface SemanticId {
   value: string[]
 }
-
-

@@ -232,19 +232,19 @@
         "protocol_endpoint": "Aspect Endpoint:"
       }
     },
-    "irs":{
-      "jobsTable":{
+    "irs": {
+      "jobsTable": {
         "title": "Item Relationship Service Job Store ",
         "jobID": "Id",
         "status": "Status",
         "visualize": "Visualization"
       },
-      "jobDetails":{
+      "jobDetails": {
         "title": "Item Relationship Service Job Details",
         "globalAssetId": "Global Asset ID:",
-        "exception":"Exception:",
-        "createdOn":"Job created on:",
-        "startedOn":"Job started on:",
+        "exception": "Exception:",
+        "createdOn": "Job created on:",
+        "startedOn": "Job started on:",
         "lastModifiedOn": "Job last modified on:",
         "jobCompleted": "Job completed on:",
         "owner": "Job owner:",
@@ -254,14 +254,14 @@
       "visualization": {
         "title": "Visualization of IRS Result"
       },
-      "dialog":{
+      "dialog": {
         "title": "Node Details",
         "submodelTombstones": {
-          "title":"Submodel Tombstones",
+          "title": "Submodel Tombstones",
           "lastAttempt": "Timestamp:",
           "errorDetail": "Error Details:"
         },
-        "submodelPayload" : {
+        "submodelPayload": {
           "title": "Submodel Payload",
           "payload": "Payload:"
         }

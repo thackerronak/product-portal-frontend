@@ -38,9 +38,8 @@ interface props {
 }
 
 export const SubmodelTobmstones = ({ subModel }: props) => {
-  
   const { t } = useTranslation()
-  
+
   const tombstones: Tombstones[] | [] = useSelector((state) => {
     if (subModel != null) {
       return getTombstonesByEndpointAdress(
@@ -73,21 +72,21 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
         <Box key={'tombstones'}>
           <h1>{t('content.irs.dialog.submodelTombstones.title')}</h1>
           {tombstones.map((stone) => {
-
-          
             // console.log(JSON.parse('{'+stone.processingError.errorDetail.toString()+'}'))
             return (
               <Box key={`stone_${stone.catenaXId}_${stone.endpointURL}`}>
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t('content.irs.dialog.submodelTombstones.lastAttempt')}
-                  content={dayjs(stone.processingError.lastAttempt).format('YYYY-MM-DD HH:mm:ss')}
+                  content={dayjs(stone.processingError.lastAttempt).format(
+                    'YYYY-MM-DD HH:mm:ss'
+                  )}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t('content.irs.dialog.submodelTombstones.errorDetail')}
                   content={
-                      stone.processingError.errorDetail
+                    stone.processingError.errorDetail
                     // <SyntaxHighlighter style={googlecode}>
                     //   {
                     //   // JSON.stringify(JSON.parse(stone.processingError.errorDetail), null, 2)

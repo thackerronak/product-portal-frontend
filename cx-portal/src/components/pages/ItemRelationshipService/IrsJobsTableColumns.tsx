@@ -23,12 +23,10 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { irsjobstatus } from 'features/irs/types'
 import { useTranslation } from 'react-i18next'
 
-
 // Columns definitions of Digital Twin page Data Grid
 export const IrsJobsTableColumns = (
   visualize: (id: string) => void
 ): Array<GridColDef> => {
-
   const { t } = useTranslation()
 
   return [

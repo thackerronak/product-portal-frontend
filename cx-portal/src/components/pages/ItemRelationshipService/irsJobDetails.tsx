@@ -33,7 +33,11 @@ interface props {
 export const IrsJobDetails = ({ job }: props) => {
   const { t } = useTranslation()
   const beautifulJson = (json: any) => {
-    return <SyntaxHighlighter style={googlecode}>{JSON.stringify(json, null, 2)}</SyntaxHighlighter>
+    return (
+      <SyntaxHighlighter style={googlecode}>
+        {JSON.stringify(json, null, 2)}
+      </SyntaxHighlighter>
+    )
   }
   return (
     <>
@@ -65,24 +69,33 @@ export const IrsJobDetails = ({ job }: props) => {
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                   topic={t('content.irs.jobDetails.createdOn')} 
-                   content={dayjs(job.createdOn).format('YYYY-MM-DD HH:mm:ss')} />
+                  topic={t('content.irs.jobDetails.createdOn')}
+                  content={dayjs(job.createdOn).format('YYYY-MM-DD HH:mm:ss')}
+                />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                   topic={t('content.irs.jobDetails.startedOn')}
-                  content={dayjs(job.startedOn).format('YYYY-MM-DD HH:mm:ss')} />
+                  topic={t('content.irs.jobDetails.startedOn')}
+                  content={dayjs(job.startedOn).format('YYYY-MM-DD HH:mm:ss')}
+                />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t('content.irs.jobDetails.lastModifiedOn')}
-                  content={dayjs(job.lastModifiedOn).format('YYYY-MM-DD HH:mm:ss')}
+                  content={dayjs(job.lastModifiedOn).format(
+                    'YYYY-MM-DD HH:mm:ss'
+                  )}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t('content.irs.jobDetails.jobCompleted')}
-                  content={dayjs(job?.jobCompleted).format('YYYY-MM-DD HH:mm:ss')}
+                  content={dayjs(job?.jobCompleted).format(
+                    'YYYY-MM-DD HH:mm:ss'
+                  )}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-                <DetailGrid topic={t('content.irs.jobDetails.owner')} content={job.owner} />
+                <DetailGrid
+                  topic={t('content.irs.jobDetails.owner')}
+                  content={job.owner}
+                />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t('content.irs.jobDetails.summary')}

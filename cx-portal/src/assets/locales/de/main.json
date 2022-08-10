@@ -232,19 +232,19 @@
         "protocol_endpoint": "Aspekt Endpunkt:"
       }
     },
-    "irs":{
-      "jobsTable":{
+    "irs": {
+      "jobsTable": {
         "title": "Item Relationship Service Job Store",
         "jobID": "Id",
         "status": "Status",
         "visualize": "Visualisierung"
       },
-      "jobDetails":{
+      "jobDetails": {
         "title": "Item Relationship Service Job Details",
         "globalAssetId": "Global Asset ID:",
-        "exception":"Exception:",
-        "createdOn":"Job erstellt am:",
-        "startedOn":"Job gestartet am:",
+        "exception": "Exception:",
+        "createdOn": "Job erstellt am:",
+        "startedOn": "Job gestartet am:",
         "lastModifiedOn": "Job zuletzt gändert am:",
         "jobCompleted": "Job beendet am:",
         "owner": "Job Besitzer:",
@@ -254,14 +254,14 @@
       "visualization": {
         "title": "IRS-Ergebniss Visualisierung"
       },
-      "dialog":{
+      "dialog": {
         "title": "Details",
         "submodelTombstones": {
-          "title":"Sub-Modell Fehlermeldungen",
+          "title": "Sub-Modell Fehlermeldungen",
           "lastAttempt": "Zeitstempel:",
           "errorDetail": "Error-Details:"
         },
-        "submodelPayload" : {
+        "submodelPayload": {
           "title": "Sub-Modell Payload",
           "payload": "Payload:"
         }

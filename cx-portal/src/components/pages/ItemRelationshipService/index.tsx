@@ -72,7 +72,7 @@ import { useTranslation } from 'react-i18next'
 // ✅ Add Copyright Header
 // ✅ Add Success state to aspect button
 // ✅ Clean up irs.scss
-// ✅ Date 
+// ✅ Date
 // ✅ Clean up types
 // ✅ Change highlighter to https://github.com/react-syntax-highlighter/react-syntax-highlighter
 // MAYBE: change visualization to D3 https://codesandbox.io/examples/package/react-d3-tree
@@ -83,7 +83,6 @@ import { useTranslation } from 'react-i18next'
 // TODO: Add Click event on Node
 // TODO: Add additional Information on Edge
 
-
 export default function ItemRelationshipService() {
   const { t } = useTranslation()
   const { jobs, loading } = useSelector(jobsSelector)
@@ -92,12 +91,11 @@ export default function ItemRelationshipService() {
   const nodes = useSelector(nodeSelector)
   const edges = useSelector(edgeSelector)
 
-  
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchJobs())
   }, [dispatch])
-  
+
   // Automatic Refresh
   // const s = true
   // useEffect(() => {
@@ -119,8 +117,6 @@ export default function ItemRelationshipService() {
   }
 
   const columns = IrsJobsTableColumns(visualize)
-
-  
 
   const nodeStyle = {
     fill: 'white',
@@ -156,62 +152,59 @@ export default function ItemRelationshipService() {
             visualize(item.toString())
           }}
         />
-        
       </section>
-      {job && (
-        <IrsJobDetails job={job?.job}></IrsJobDetails>
-      )}
+      {job && <IrsJobDetails job={job?.job}></IrsJobDetails>}
       {job && nodes.length > 0 && edges.length > 0 && (
-      <section>
-        <Box className="irs-visualization" sx={{ textAlign: 'center' }}>
-          <Box className="irs-visualization-header">
-            <h5>{t('content.irs.visualization.title')}</h5>
+        <section>
+          <Box className="irs-visualization" sx={{ textAlign: 'center' }}>
+            <Box className="irs-visualization-header">
+              <h5>{t('content.irs.visualization.title')}</h5>
+            </Box>
+            <Canvas
+              className="canvas"
+              zoom={0.4}
+              height={800}
+              nodes={nodes}
+              edges={edges}
+              defaultPosition={CanvasPosition.TOP}
+              node={
+                <Node removable={false} style={nodeStyle}>
+                  {(nodeChild) => (
+                    <foreignObject
+                      height={290}
+                      width={290}
+                      x={0}
+                      y={0}
+                      // onClick={(event, node) => {
+                      //     console.log('Selecting Node', event, node)
+                      //     if (onClick) onClick(event, node)
+                      // }}
+                    >
+                      <Box>
+                        <div className="node-header">
+                          uuid: {nodeChild.node.id}
+                        </div>
+                        <NodeTemplate shell={nodeChild.node}></NodeTemplate>
+                      </Box>
+                    </foreignObject>
+                  )}
+                </Node>
+              }
+              edge={
+                <Edge
+                  removable={false}
+                  className="edge"
+                  style={edgeStyle}
+                  onClick={(event, node) => {
+                    console.log('Selecting Edge', event, node)
+                  }}
+                />
+              }
+            />
           </Box>
-          <Canvas
-            className="canvas"
-            zoom={0.4}
-            height={800}
-            nodes={nodes}
-            edges={edges}
-            defaultPosition={CanvasPosition.TOP}
-            node={
-              <Node removable={false} style={nodeStyle}>
-                {(nodeChild) => (
-                  <foreignObject
-                    height={290}
-                    width={290}
-                    x={0}
-                    y={0}
-                    // onClick={(event, node) => {
-                    //     console.log('Selecting Node', event, node)
-                    //     if (onClick) onClick(event, node)
-                    // }}
-                  >
-                    <Box>
-                      <div className="node-header">
-                        uuid: {nodeChild.node.id}
-                      </div>
-                      <NodeTemplate shell={nodeChild.node}></NodeTemplate>
-                    </Box>
-                  </foreignObject>
-                )}
-              </Node>
-            }
-            edge={
-              <Edge
-                removable={false}
-                className="edge"
-                style={edgeStyle}
-                onClick={(event, node) => {
-                  console.log('Selecting Edge', event, node)
-                }}
-              />
-            }
-          />
-        </Box>
-      </section>
+        </section>
       )}
-      
+
       <NodeDetailDialog
         show={showNodeDialog}
         onClose={() => closeDialog()}
