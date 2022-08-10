@@ -25,7 +25,7 @@ import { Grid, Box, Divider, useTheme } from '@mui/material'
 import { useTranslation } from 'react-i18next'
 import { SubmodelTobmstones } from './SubmodelTobmstones'
 
-export const NodeDetails = ({ twin }: { twin: ShellDescriptor }) => {
+export const NodeDetailsTwo = ({ twin }: { twin: ShellDescriptor }) => {
   const theme = useTheme()
   const { t } = useTranslation()
 
@@ -44,51 +44,6 @@ export const NodeDetails = ({ twin }: { twin: ShellDescriptor }) => {
   //     setShowTombstone(bol)
   // }
 
-  const primaryContent = (
-    <>
-      {getDesciption(twin)}
-      {hasSubmodels() && (
-        <>
-          <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-          <Typography sx={{ mb: 3, typography: 'label2' }}>
-            {t('content.digitaltwin.detail.assetId')}
-          </Typography>
-          {twin.submodelDescriptors.length > 0 && (
-            <DetailGrid
-              topic={t('content.digitaltwin.detail.submodel_endpoints')}
-              content={twin.submodelDescriptors.length}
-            />
-          )}
-          <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-          {twin.specificAssetIds.map((saId, index) => (
-            <Box key={saId.key}>
-              <DetailGrid
-                topic={t('content.digitaltwin.detail.key')}
-                content={saId.key}
-              />
-              <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-              <DetailGrid
-                topic={t('content.digitaltwin.detail.value')}
-                content={saId.value}
-              />
-              {saId.semanticId && (
-                <>
-                  <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-                  <DetailGrid
-                    topic={t('content.digitaltwin.detail.semanticid')}
-                    content={saId.semanticId.value.join(', ')}
-                  />
-                </>
-              )}
-              {index + 1 !== twin.specificAssetIds.length && (
-                <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-              )}
-            </Box>
-          ))}
-        </>
-      )}
-    </>
-  )
 
   const secondaryContent = (
     subModel: SubmodelDescriptors,
@@ -96,6 +51,7 @@ export const NodeDetails = ({ twin }: { twin: ShellDescriptor }) => {
     idKey: string
   ) => (
     <>
+      <h1 style={{marginTop:'100px'}}>Aspect: {subModel.idShort}</h1>
       <h2>Submodel Descriptor</h2>
       {getDesciption(subModel)}
       <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
@@ -151,36 +107,63 @@ export const NodeDetails = ({ twin }: { twin: ShellDescriptor }) => {
     </>
   )
 
-  const accordionItems = () => {
-    let items = [
-      {
-        title: twin.idShort,
-        id: 'panel1',
-        expanded: false,
-        color: 'background.background09',
-        children: primaryContent,
-      },
-    ]
-    if (hasSubmodels()) {
-      twin.submodelDescriptors.forEach((subModel, indexSubmodel) => {
-        const idKey = `${subModel.idShort}_${indexSubmodel}`
-
-        const item = {
-          title: subModel.idShort,
-          id: idKey,
-          expanded: false,
-          children: secondaryContent(
+  return (
+    <>
+      <h1>Shell</h1>
+      {getDesciption(twin)}
+      {hasSubmodels() && (
+        <>
+          <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+          <Typography sx={{ mb: 3, typography: 'label2' }}>
+            {t('content.digitaltwin.detail.assetId')}
+          </Typography>
+          {twin.submodelDescriptors.length > 0 && (
+            <DetailGrid
+              topic={t('content.digitaltwin.detail.submodel_endpoints')}
+              content={twin.submodelDescriptors.length}
+            />
+          )}
+          <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+          {twin.specificAssetIds.map((saId, index) => (
+            <Box key={saId.key}>
+              <DetailGrid
+                topic={t('content.digitaltwin.detail.key')}
+                content={saId.key}
+              />
+              <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+              <DetailGrid
+                topic={t('content.digitaltwin.detail.value')}
+                content={saId.value}
+              />
+              {saId.semanticId && (
+                <>
+                  <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+                  <DetailGrid
+                    topic={t('content.digitaltwin.detail.semanticid')}
+                    content={saId.semanticId.value.join(', ')}
+                  />
+                </>
+              )}
+              {index + 1 !== twin.specificAssetIds.length && (
+                <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+              )}
+            </Box>
+          ))}
+        
+        {twin.submodelDescriptors.map((subModel, indexSubmodel) => {
+          return secondaryContent(
             subModel,
             subModel.semanticId.value[0],
-            idKey
-          ),
-          color: '',
-        }
-        items.push(item)
-      })
-    }
-    return items
-  }
+            `${subModel.idShort}_${indexSubmodel}`
+          )
+          
+        })}
+      
 
-  return <CustomAccordion items={accordionItems()}/>
+
+
+        </>
+      )}
+    </>
+  )
 }

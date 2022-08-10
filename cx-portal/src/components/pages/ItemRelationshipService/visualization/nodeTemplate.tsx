@@ -47,6 +47,10 @@ export const NodeTemplate = ({ shell }: props) => {
 
   return (
     <>
+      <div className="node-header">
+        <p>{shell.idShort}</p>
+        <p>{shell.id}</p>
+      </div>
       <Box
         sx={{
           display: 'grid',

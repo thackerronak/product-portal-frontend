@@ -75,13 +75,13 @@ import { useTranslation } from 'react-i18next'
 // ✅ Date
 // ✅ Clean up types
 // ✅ Change highlighter to https://github.com/react-syntax-highlighter/react-syntax-highlighter
+// ✅  Refactor Dialog
 // MAYBE: change visualization to D3 https://codesandbox.io/examples/package/react-d3-tree
 // TODO: Refactor to new API Logic
 // TODO: Automatic Refresh Toggle
 // TODO: Change functionality to show Items, where Registry Call has not been done yet (Links which have been filtered out!)
-// TODO: Refactor Dialog
 // TODO: Add Click event on Node
-// TODO: Add additional Information on Edge
+// TODO: Add additional Information for Edge
 
 export default function ItemRelationshipService() {
   const { t } = useTranslation()
@@ -181,9 +181,6 @@ export default function ItemRelationshipService() {
                       // }}
                     >
                       <Box>
-                        <div className="node-header">
-                          uuid: {nodeChild.node.id}
-                        </div>
                         <NodeTemplate shell={nodeChild.node}></NodeTemplate>
                       </Box>
                     </foreignObject>

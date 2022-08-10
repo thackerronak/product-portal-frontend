@@ -70,7 +70,7 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
     <>
       {hasTombstoness && (
         <Box key={'tombstones'}>
-          <h1>{t('content.irs.dialog.submodelTombstones.title')}</h1>
+          <h2>{t('content.irs.dialog.submodelTombstones.title')}</h2>
           {tombstones.map((stone) => {
             // console.log(JSON.parse('{'+stone.processingError.errorDetail.toString()+'}'))
             return (
@@ -102,7 +102,7 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
 
       {hasPayload() && (
         <>
-          <h1>{t('content.irs.dialog.submodelPayload.title')}</h1>
+          <h2>{t('content.irs.dialog.submodelPayload.title')}</h2>
           {submodelPayload.map((payload) => {
             return (
               <Box
