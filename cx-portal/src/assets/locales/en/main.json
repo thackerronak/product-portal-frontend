@@ -40,7 +40,8 @@
     "appreleaseprocess": "App Release Process",
     "appusermanagement": "App User Management",
     "userdetails": "User Details",
-    "technicaluser": "Technical User Management"
+    "technicaluser": "Technical User Management",
+    "itemrelationshipservice": "Item Relationship Service"
   },
   "overlays": {
     "invite": "Invite new Business Partner",

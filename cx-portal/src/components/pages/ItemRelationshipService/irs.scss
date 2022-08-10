@@ -1,0 +1,274 @@
+/********************************************************************************
+ * Copyright (c) 2021,2022 BMW Group AG
+ * Copyright (c) 2021,2022 Contributors to the CatenaX (ng) GitHub Organisation.
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+.canvas {
+  background-color: white;
+  background-image: -webkit-repeating-radial-gradient(
+    top center,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 1px,
+    transparent 0,
+    transparent 100%
+  );
+  background-size: 20px 20px;
+  height: 500px;
+}
+
+.selection-area {
+  position: absolute;
+  text-align: left;
+  min-width: 300px;
+  max-width: 800px;
+  max-height: 500px;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20;
+  color: white;
+  overflow-y: scroll;
+
+  .header {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.node-header {
+  font-size: x-small;
+  text-align: center;
+  margin-top: 10px;
+}
+
+@keyframes dashdraw {
+  0% {
+    stroke-dashoffset: 10;
+  }
+}
+
+#ref-2 {
+  width: 5000px;
+}
+
+// Code Formatting
+// pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}
+/*!
+   Theme: Agate
+   Author: (c) Taufik Nurrohman <hi@taufik-nurrohman.com>
+   Maintainer: @taufik-nurrohman
+   Updated: 2021-04-24
+
+   #333
+   #62c8f3
+   #7bd694
+   #888
+   #a2fca2
+   #ade5fc
+   #b8d8a2
+   #c6b4f0
+   #d36363
+   #fc9b9b
+   #fcc28c
+   #ffa
+   #fff
+*/
+// .hljs{background:rgba(51, 51, 51, 0.5);color:#fff}.hljs-doctag,.hljs-meta-keyword,.hljs-name,.hljs-strong{font-weight:700}.hljs-code,.hljs-emphasis{font-style:italic}.hljs-section,.hljs-tag{color:#62c8f3}.hljs-selector-class,.hljs-selector-id,.hljs-template-variable,.hljs-variable{color:#ade5fc}.hljs-meta-string,.hljs-string{color:#a2fca2}.hljs-attr,.hljs-quote,.hljs-selector-attr{color:#7bd694}.hljs-tag .hljs-attr{color:inherit}.hljs-attribute,.hljs-title,.hljs-type{color:#ffa}.hljs-number,.hljs-symbol{color:#d36363}.hljs-bullet,.hljs-template-tag{color:#b8d8a2}.hljs-built_in,.hljs-keyword,.hljs-literal,.hljs-selector-tag{color:#fcc28c}.hljs-code,.hljs-comment,.hljs-formula{color:#888}.hljs-link,.hljs-regexp,.hljs-selector-pseudo{color:#c6b4f0}.hljs-meta{color:#fc9b9b}.hljs-deletion{background:#fc9b9b;color:#333}.hljs-addition{background:#a2fca2;color:#333}.hljs-subst{color:#fff}.hljs a{color:inherit}.hljs a:focus,.hljs a:hover{color:inherit;text-decoration:underline}.hljs mark{background:#555;color:inherit}
+
+/*!
+  Theme: Google Light
+  Author: Seth Wright (http://sethawright.com)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0em;
+}
+code.hljs {
+  padding: 3px 5px;
+}
+.hljs {
+  color: #373b41;
+  background: #fff;
+}
+.hljs ::selection,
+.hljs::selection {
+  background-color: #c5c8c6;
+  color: #373b41;
+}
+.hljs-comment {
+  color: #b4b7b4;
+}
+.hljs-tag {
+  color: #969896;
+}
+.hljs-operator,
+.hljs-punctuation,
+.hljs-subst {
+  color: #373b41;
+}
+.hljs-operator {
+  opacity: 0.7;
+}
+.hljs-bullet,
+.hljs-deletion,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-template-variable,
+.hljs-variable {
+  color: #cc342b;
+}
+.hljs-attr,
+.hljs-link,
+.hljs-literal,
+.hljs-number,
+.hljs-symbol,
+.hljs-variable.constant_ {
+  color: #f96a38;
+}
+.hljs-class .hljs-title,
+.hljs-title,
+.hljs-title.class_ {
+  color: #fba922;
+}
+.hljs-strong {
+  font-weight: 700;
+  color: #fba922;
+}
+.hljs-addition,
+.hljs-code,
+.hljs-string,
+.hljs-title.class_.inherited__ {
+  color: #198844;
+}
+.hljs-attribute,
+.hljs-built_in,
+.hljs-doctag,
+.hljs-function .hljs-title,
+.hljs-keyword.hljs-atrule,
+.hljs-quote,
+.hljs-regexp,
+.hljs-section,
+.hljs-title.function_,
+.ruby .hljs-property {
+  color: #3971ed;
+}
+.diff .hljs-meta,
+.hljs-keyword,
+.hljs-template-tag,
+.hljs-type {
+  color: #a36ac7;
+}
+.hljs-emphasis {
+  color: #a36ac7;
+  font-style: italic;
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #3971ed;
+}
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: 700;
+}
+
+// irs-job-details-header
+// .irs-job-details-header{
+//     margin: 25px;
+//     background-color: #888;
+//     font-weight: bold;
+// }
+
+.irs-job-details {
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  border: 1px solid #dcdcdc;
+  border-radius: 24px;
+  overflow: hidden;
+  // display: flex;
+  &-content {
+    width: auto;
+    margin: 25px;
+  }
+}
+.irs-job-details-header {
+  background-color: #f9f9f9;
+  min-height: 100px;
+  padding: 8px 32px;
+  width: inherit;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+
+  width: 100%;
+
+  font-family: 'LibreFranklin-Light', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5555555555555556;
+  color: #111111;
+}
+
+.irs-visualization {
+  align-items: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  border: 1px solid #dcdcdc;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.irs-visualization-header {
+  background-color: #f9f9f9;
+  min-height: 100px;
+  padding: 8px 32px;
+  width: inherit;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+
+  width: 100%;
+
+  font-family: 'LibreFranklin-Light', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5555555555555556;
+  color: #111111;
+}

@@ -36,6 +36,7 @@ import { apiSlice as serviceApiSlice } from './admin/serviceApiSlice'
 import { apiSlice as notificationApiSlice } from './notification/apiSlice'
 import { apiSlice as appRolesSlice } from './admin/appuserApiSlice'
 import { apiSlice as appMarketplaceSlice } from './apps/apiSlice'
+import jobSlice from './irs/slice'
 
 export const reducers = {
   admin,
@@ -45,6 +46,7 @@ export const reducers = {
   semanticModels: modelsSlice.reducer,
   user: userSlice,
   twins: twinsSlice.reducer,
+  irs: jobSlice.reducer,
   partnerNetwork: partnerNetworkSlice.reducer,
   connector: connectorSlice.reducer,
   notification: notificationSlice.reducer,

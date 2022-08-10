@@ -23,7 +23,9 @@ export const getCentralIdp = () => {
     return 'https://centralidp-pen.dev.demo.catena-x.net/auth'
   if (hostname === 'portal.catena-x.net')
     return 'https://centralidp.catena-x.net/auth'
-  return 'https://centralidp.dev.demo.catena-x.net/auth'
+  // return 'https://centralidp.dev.demo.catena-x.net/auth' change just for irs development
+  return 'https://centralidp.demo.catena-x.net/auth'
+
 }
 
 export const getClientId = () => 'Cl2-CX-Portal'

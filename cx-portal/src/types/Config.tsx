@@ -61,6 +61,7 @@ import { Route } from 'react-router-dom'
 import { ACTIONS, HINTS, OVERLAYS, PAGES, ROLES } from './Constants'
 import { IAction, IOverlay, IPage } from './MainTypes'
 import AppUserManagement from 'components/pages/AppUserManagement'
+import ItemRelationshipService from 'components/pages/ItemRelationshipService'
 
 /**
  * ALL_PAGES
@@ -262,6 +263,7 @@ export const ALL_PAGES: IPage[] = [
     element: <EdcConnector />,
   },
   { name: PAGES.LOGOUT, element: <Logout /> },
+  { name: PAGES.IRS, element: <ItemRelationshipService />},
 ]
 
 export const ALL_OVERLAYS: IOverlay[] = [
@@ -336,6 +338,7 @@ export const mainMenuFullTree = [
     name: PAGES.APP_MANAGEMENT,
     children: [{ name: PAGES.APPOVERVIEW }, { name: PAGES.APPRELEASEPROCESS }],
   },
+  { name: PAGES.IRS }, 
 ]
 
 /**
