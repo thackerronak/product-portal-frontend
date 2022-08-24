@@ -5,7 +5,8 @@ import { CXNotification } from './types'
 export const apiSlice = createApi({
   reducerPath: 'info/notifications',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://portal-backend.dev.demo.ftcpro.co/assets/api/notification', //getApiBase(),
+    baseUrl:
+      'https://portal-backend.dev.demo.ftcpro.co/assets/api/notification', //getApiBase(),
     prepareHeaders: (headers) => {
       headers.set('authorization', `Bearer ${UserService.getToken()}`)
       return headers
