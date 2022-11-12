@@ -18,10 +18,10 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-const LOCAL_SERVICES_FRONTEND = 'https://portal.dev.demo.ftcpro.co'
+const LOCAL_SERVICES_FRONTEND = 'https://portal.dev.ftcpro.co'
 const LOCAL_SERVICES_BACKEND = 'https://portal-backend.dev.ftcpro.co'
-//const LOCAL_SERVICES_CENTRALIDP = 'https://centralidp.dev.demo.ftcpro.co'
-//const LOCAL_SERVICES_BPDM = 'https://bpdm.dev.demo.ftcpro.co'
+//const LOCAL_SERVICES_CENTRALIDP = 'https://centralidp.dev.ftcpro.co'
+//const LOCAL_SERVICES_BPDM = 'https://bpdm.dev.ftcpro.co'
 
 export const getHostname = () => window.location.hostname
 
@@ -39,15 +39,15 @@ export const getCentralIdp = () => {
   const hostname = getHostname()
   if (hostname === 'portal.int.demo.ftcpro.co')
     return 'https://centralidp.demo.ftcpro.co/auth'
-  if (hostname === 'portal-pen.dev.demo.ftcpro.co')
-    return 'https://centralidp-pen.dev.demo.ftcpro.co/auth'
+  if (hostname === 'portal-pen.dev.ftcpro.co')
+    return 'https://centralidp-pen.dev.ftcpro.co/auth'
   if (hostname === 'portal.beta.demo.ftcpro.co')
     return 'https://centralidp.beta.demo.ftcpro.co/auth'
   if (hostname === 'portal.pre-prod.demo.ftcpro.co')
     return 'https://centralidp.pre-prod.demo.ftcpro.co/auth'
   if (hostname === 'portal.ftcpro.co')
     return 'https://centralidp.ftcpro.co/auth'
-  return 'https://centralidp.dev.demo.ftcpro.co/auth'
+  return 'https://centralidp.dev.ftcpro.co/auth'
 }
 
 export const getClientId = () => 'Cl2-CX-Portal'
@@ -57,15 +57,15 @@ export const getBpdmApiBase = () => {
   const hostname = getHostname()
   if (hostname === 'portal.int.demo.ftcpro.co')
     return 'https://partners-pool.int.demo.ftcpro.co/api'
-  if (hostname === 'portal-pen.dev.demo.ftcpro.co')
-    return 'https://partners-pool-pen.dev.demo.ftcpro.co/api'
+  if (hostname === 'portal-pen.dev.ftcpro.co')
+    return 'https://partners-pool-pen.dev.ftcpro.co/api'
   if (hostname === 'portal.beta.demo.ftcpro.co')
     return 'https://partners-pool.beta.demo.ftcpro.co/api'
   if (hostname === 'portal.pre-prod.demo.ftcpro.co')
     return 'https://partners-pool.pre-prod.demo.ftcpro.co/api'
   if (hostname === 'portal.ftcpro.co')
     return 'https://partners-pool.ftcpro.co/api'
-  return 'https://partners-pool.dev.demo.ftcpro.co/api'
+  return 'https://partners-pool.dev.ftcpro.co/api'
 }
 //export const getBpdmApiBase = () =>
 //  isLocal()
@@ -76,15 +76,14 @@ export const getSemanticApiBase = () => {
   const hostname = getHostname()
   if (hostname === 'portal.int.demo.ftcpro.co')
     return 'https://semantics.int.demo.ftcpro.co/'
-  if (hostname === 'portal-pen.dev.demo.ftcpro.co')
-    return 'https://semantics-pen.dev.demo.ftcpro.co/'
+  if (hostname === 'portal-pen.dev.ftcpro.co')
+    return 'https://semantics-pen.dev.ftcpro.co/'
   if (hostname === 'portal.beta.demo.ftcpro.co')
     return 'https://semantics.beta.demo.ftcpro.co/'
   if (hostname === 'portal.pre-prod.demo.ftcpro.co')
     return 'https://semantics.pre-prod.demo.ftcpro.co/'
-  if (hostname === 'portal.ftcpro.co')
-    return 'https://semantics.ftcpro.co/'
-  return 'https://semantics.dev.demo.ftcpro.co/'
+  if (hostname === 'portal.ftcpro.co') return 'https://semantics.ftcpro.co/'
+  return 'https://semantics.dev.ftcpro.co/'
 }
 
 export const getClientIdSemantic = () => 'Cl3-CX-Semantic'
